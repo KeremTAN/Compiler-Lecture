@@ -1,13 +1,14 @@
-#ifndef LEXER_HPP
-#define LEXER_HPP
+#ifndef TOKEN_HPP
+#define TOKEN_HPP
 #include <llvm/ADT/StringRef.h>
 #include <llvm/Support/MemoryBuffer.h>
 
 class Token {
-    friend class Lexer;
 public:
+    Token();
+    friend class Lexer;
     enum TokenKind : unsigned short {
-        eof, unknown, ident, number, command, colon, plus,
+        eof, unknown, ident, number, comma, colon, plus,
         minus, star, slash, l_paren, r_paren, KW_with
     };
     TokenKind       getKind() const;

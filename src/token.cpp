@@ -1,5 +1,7 @@
 #include "token.hpp"
 
+Token::Token(){};
+
 Token::TokenKind    Token::getKind() const { return m_kind; }
 llvm::StringRef     Token::getText() const { return m_text; }
 
