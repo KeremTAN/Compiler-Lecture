@@ -15,8 +15,11 @@ set(PROJECT_SOURCES
     ${PROJECT_SOURCE_DIR}/token.cpp)
 
 set(PROJECT_HEADERS
-    ${PROJECT_INCLUDE_DIR}/lexer.hpp,
-    ${PROJECT_INCLUDE_DIR}/token.hpp)
+    ${PROJECT_INCLUDE_DIR}/lexer.hpp
+    ${PROJECT_INCLUDE_DIR}/token.hpp
+    ${PROJECT_INCLUDE_DIR}/parser.hpp
+    ${PROJECT_INCLUDE_DIR}/AST.hpp
+    ${PROJECT_INCLUDE_DIR}/Expr.hpp)
 
 find_package(LLVM REQUIRED CONFIG)
 
