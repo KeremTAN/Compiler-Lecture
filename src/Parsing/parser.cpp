@@ -1,4 +1,4 @@
-#include "parser.hpp"
+#include "Parsing/parser.hpp"
 
 AST* Parser::parse() {
     AST* Res = parseCalc();
@@ -108,5 +108,6 @@ Expr* Parser::parseFactor(){
 
     while(!m_Tok.isOneOf(Token::r_paren, Token::star, Token::plus, Token::minus, Token::eof))
         advance();
-        
+    
+    return Res;
 }

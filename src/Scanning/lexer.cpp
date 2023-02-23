@@ -1,4 +1,4 @@
-#include "lexer.hpp"
+#include "Scanning/lexer.hpp"
 
 namespace charInfo {
     LLVM_READNONE inline bool isWhitespace(char c) {

@@ -1,6 +1,6 @@
 #ifndef LEXER_HPP
 #define LEXER_HPP
-#include "token.hpp"
+#include "Scanning/token.hpp"
 
 class Lexer{
 public:

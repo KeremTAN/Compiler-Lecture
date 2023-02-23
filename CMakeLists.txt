@@ -9,17 +9,11 @@ set (PROJECT_INCLUDE_DIR ${PROJECT_DIR}/include)
 
 set (PROJECT_SOURCE_DIR ${PROJECT_DIR}/src)
 
-set(PROJECT_SOURCES
-    ${PROJECT_SOURCE_DIR}/main.cpp
-    ${PROJECT_SOURCE_DIR}/lexer.cpp
-    ${PROJECT_SOURCE_DIR}/token.cpp)
+file(GLOB PROJECT_SOURCES
+    ${PROJECT_SOURCE_DIR}/*.cpp)
 
-set(PROJECT_HEADERS
-    ${PROJECT_INCLUDE_DIR}/lexer.hpp
-    ${PROJECT_INCLUDE_DIR}/token.hpp
-    ${PROJECT_INCLUDE_DIR}/parser.hpp
-    ${PROJECT_INCLUDE_DIR}/AST.hpp
-    ${PROJECT_INCLUDE_DIR}/Expr.hpp)
+file(GLOB PROJECT_HEADERS
+    ${PROJECT_INCLUDE_DIR}/*.hpp)
 
 find_package(LLVM REQUIRED CONFIG)
 
