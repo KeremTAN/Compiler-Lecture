@@ -1,4 +1,4 @@
-#include "Parsing/parser.hpp"
+#include "Front-End/Parsing/Parser.hpp"
 
 AST* Parser::parse() {
     AST* Res = parseCalc();

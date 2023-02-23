@@ -1,0 +1,6 @@
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/intrinsics_gen.dir
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/omp_gen.dir
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/acc_gen.dir
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/Section1-BasicsOfCompiler.dir
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/edit_cache.dir
+/Users/kerem/Desktop/Codes/Compilers/build/CMakeFiles/rebuild_cache.dir

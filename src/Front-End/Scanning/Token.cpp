@@ -1,4 +1,4 @@
-#include "Scanning/token.hpp"
+#include "Front-End/Scanning/Token.hpp"
 
 Token::Token(){};
 
