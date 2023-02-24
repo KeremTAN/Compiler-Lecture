@@ -9,7 +9,6 @@ class AST {
 public:
     virtual ~AST() {}
     virtual void accept(ASTVisitor& V) = 0;
-    virtual void print ()=0;
 };
 
 #endif
