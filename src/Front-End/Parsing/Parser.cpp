@@ -31,8 +31,13 @@ bool Parser::consume(Token::TokenKind Kind){
 AST* Parser::parseCalc(){
     Expr* E;
     llvm::SmallVector<llvm::StringRef, 8> Vars;
+
+    if(m_Tok.is(Token::KW_with))
+        advance();
+
     if (expect(Token::ident))
         goto _error;
+    
     Vars.push_back(m_Tok.getText());
     advance();
 
@@ -50,7 +55,8 @@ AST* Parser::parseCalc(){
     E = parseExpr();
 
     if(Vars.empty()) return E;
-    else return new WithDecl(Vars, E);
+    
+    return new WithDecl(Vars, E);
 
 _error:
     while (!m_Tok.is(Token::eof))
