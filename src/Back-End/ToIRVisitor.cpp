@@ -24,6 +24,23 @@ void ToIRVisitor::run(AST* Tree){
     m_Builder.CreateRet(m_Int32Zero);
 }
 
-void ToIRVisitor::visit(WithDecl& Node){}
+void ToIRVisitor::visit(WithDecl& Node){
+    FunctionType*   ReadFty = FunctionType::get(m_Int32Ty, {m_Int8PtrType}, false);
+    Function*       ReadFn  = Function::Create(ReadFty, GlobalValue::ExternalLinkage, "calc_read", m_Module);
+
+    for(auto I = Node.begin(), E=Node.end(); I!=E; ++I){
+        StringRef   Var = *I;
+        Constant*   StrText = ConstantDataArray::getString(m_Module->getContext(), Var);
+        GlobalVariable* Str = new GlobalVariable(
+            *m_Module, StrText->getType(), true,
+            GlobalValue::PrivateLinkage, StrText,
+            Twine(Var).concat(".str"));
+
+        Value* Ptr = m_Builder.CreateInBoundsGEP(Str->getType(), Str, {m_Int32Zero, m_Int32Zero}, "ptr");
+        CallInst* Call = m_Builder.CreateCall(ReadFty, ReadFn, {Ptr});
+        m_nameMap[Var] = Call;
+    }
+    Node.getExpr()->accept(*this);
+}
 void ToIRVisitor::visit(Factor& Node){}
 void ToIRVisitor::visit(BinaryOp& Node){}
