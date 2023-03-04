@@ -1,11 +1,11 @@
 #ifndef ASTVISITOR_HPP
 #define ASTVISITOR_HPP
 
-#include "AST.hpp"
-#include "Expr.hpp"
-#include "BinaryOp.hpp"
-#include "Factor.hpp"
-#include "WithDecl.hpp"
+#include "Front-End/Parsing/AST.hpp"
+#include "Front-End/Parsing/Expr.hpp"
+#include "Front-End/Parsing/BinaryOp.hpp"
+#include "Front-End/Parsing/Factor.hpp"
+#include "Front-End/Parsing/WithDecl.hpp"
 
 class ASTVisitor {
 public:

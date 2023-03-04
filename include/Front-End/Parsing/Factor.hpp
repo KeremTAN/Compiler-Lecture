@@ -1,7 +1,7 @@
 #ifndef FACTOR_HPP
 #define FACTOR_HPP
 
-#include "Expr.hpp"
+#include "Front-End/Parsing/Expr.hpp"
 
 class Factor : public Expr {
 public:

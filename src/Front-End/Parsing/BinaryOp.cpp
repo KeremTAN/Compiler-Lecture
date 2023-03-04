@@ -1,4 +1,4 @@
-#include "BinaryOp.hpp"
+#include "Front-End/Parsing/BinaryOp.hpp"
 
 BinaryOp::BinaryOp(Operator Op, Expr* Left, Expr* Right)
     :m_Operator(Op), m_Left(Left), m_Right(Right) {}

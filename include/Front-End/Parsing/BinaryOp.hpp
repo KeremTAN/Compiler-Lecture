@@ -1,7 +1,7 @@
 #ifndef BINARYOP_HPP
 #define BINARYOP_HPP
 
-#include "Expr.hpp"
+#include "Front-End/Parsing/Expr.hpp"
 
 class BinaryOp : public Expr{
 

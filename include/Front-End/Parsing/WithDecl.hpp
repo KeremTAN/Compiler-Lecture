@@ -1,7 +1,7 @@
 #ifndef WITHDECL.HPP
 #define WITHDECL.HPP
 
-#include "AST.hpp"
+#include "Front-End/Parsing/AST.hpp"
 
 using VarVector = llvm::SmallVector<llvm::StringRef, 8>;
 

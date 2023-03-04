@@ -2,7 +2,7 @@
 #define CODEGEN_HPP
 
 #include "Front-End/Parsing/AST.hpp"
-#include "ToIRVisitor.hpp"
+#include "Back-End/ToIRVisitor.hpp"
 
 class CodeGen {
 public:

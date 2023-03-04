@@ -3,7 +3,7 @@
 
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
-#include "ASTVisitor.hpp"
+#include "Front-End/Parsing/ASTVisitor.hpp"
 
 class AST {
 public:

@@ -1,8 +1,8 @@
 #ifndef PARSER_HPP
 #define PARSER_HPP
-#include "AST.hpp"
-#include "Expr.hpp"
-#include "Lexer.hpp"
+#include "Front-End/Parsing/AST.hpp"
+#include "Front-End/Parsing/Expr.hpp"
+#include "Front-End/Scanning/Lexer.hpp"
 #include <llvm/Support/raw_ostream.h>
 
 class Parser {

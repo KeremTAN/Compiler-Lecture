@@ -1,4 +1,4 @@
-#include "DeclCheck.hpp"
+#include "Front-End/Semantic/DeclCheck.hpp"
 
 DeclCheck::DeclCheck()
     :m_HasError(false) {}
