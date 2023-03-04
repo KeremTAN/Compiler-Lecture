@@ -12,7 +12,7 @@ using namespace llvm;
 class ToIRVisitor : public ASTVisitor
 {
 public:
-    ToIRVisitor(Module* M);
+    ToIRVisitor(Module* Module);
     ~ToIRVisitor();
     void         run(AST* Tree);
     virtual void visit(WithDecl& Node)  override;
@@ -20,15 +20,15 @@ public:
     virtual void visit(BinaryOp& Node)  override;
 
 private:
-    Module*     M;
-    IRBuilder<> Builder;
-    Type*       VoidTy;
-    Type*       Int32Ty;
-    Type*       Int8PtrType;
-    Type*       Int8PtrPtrType;
-    Constant*   Int32Zero;
-    Value*      V;
-    StringMap<Value*> nameMap;
+    Module*     m_Module;
+    IRBuilder<> m_Builder;
+    Type*       m_VoidTy;
+    Type*       m_Int32Ty;
+    Type*       m_Int8PtrType;
+    Type*       m_Int8PtrPtrType;
+    Constant*   m_Int32Zero;
+    Value*      m_Value;
+    StringMap<Value*> m_nameMap;
 };
 
 
