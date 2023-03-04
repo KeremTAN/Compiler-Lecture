@@ -42,5 +42,39 @@ void ToIRVisitor::visit(WithDecl& Node){
     }
     Node.getExpr()->accept(*this);
 }
-void ToIRVisitor::visit(Factor& Node){}
-void ToIRVisitor::visit(BinaryOp& Node){}
+
+void ToIRVisitor::visit(Factor& Node){
+    if(Node.getKind() == Factor::Ident){
+        m_Value = m_nameMap[Node.getVal()];
+    }
+    else {
+        int intVal;
+        Node.getVal().getAsInteger(10, intVal);
+        m_Value = ConstantInt::get(m_Int32Ty, intVal, true);
+    }
+}
+
+void ToIRVisitor::visit(BinaryOp& Node){
+    Node.getLeft()->accept(*this);
+    Value* Left = m_Value;
+    Node.getRight()->accept(*this);
+    Value* Right =m_Value;
+    switch (Node.getOperator())
+    {
+    case BinaryOp::Plus:
+        m_Value = m_Builder.CreateNSWAdd(Left, Right);
+        break;
+
+    case BinaryOp::Minus:
+        m_Value = m_Builder.CreateNSWSub(Left, Right);
+        break;
+    
+    case BinaryOp::Mul:
+        m_Value = m_Builder.CreateNSWMul(Left, Right);
+        break;
+    
+    case BinaryOp::Div:
+        m_Value = m_Builder.CreateSDiv(Left, Right);
+        break;
+    }
+}

@@ -1,4 +1,11 @@
 #include "CodeGen.hpp"
 
-using namespace llvm;
+
+void CodeGen::compile(AST* Tree){
+    LLVMContext Ctx;
+    Module* M = new Module("calc.expr", Ctx);
+    ToIRVisitor ToIR(M);
+    ToIR.run(Tree);
+    M->print(outs(), nullptr);
+}
 
