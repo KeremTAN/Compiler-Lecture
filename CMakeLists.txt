@@ -16,12 +16,12 @@ file(GLOB PROJECT_HEADERS
     ${PROJECT_INCLUDE_DIR}/*.hpp)
 
 # -> Path to LLVM 12 installation directory
-set(LLVM_ROOT_DIR "/opt/homebrew/Cellar/llvm@12/12.0.1_1")
+# set(LLVM_ROOT_DIR "/opt/homebrew/Cellar/llvm@12/12.0.1_1")
 
 # -> Set LLVM_DIR to LLVM 12 installation directory
-set(LLVM_DIR ${LLVM_ROOT_DIR}/lib/cmake/llvm)
+# set(LLVM_DIR ${LLVM_ROOT_DIR}/lib/cmake/llvm)
 
-find_package(LLVM 12 REQUIRED CONFIG)
+find_package(LLVM REQUIRED CONFIG)
 
 add_definitions(${LLVM_DEFINITIONS})
 include_directories(${LLVM_INCLUDE_DIRS})

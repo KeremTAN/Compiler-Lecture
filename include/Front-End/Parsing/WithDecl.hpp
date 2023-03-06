@@ -1,5 +1,5 @@
-#ifndef WITHDECL.HPP
-#define WITHDECL.HPP
+#ifndef WITHDECL_HPP
+#define WITHDECL_HPP
 
 #include "Front-End/Parsing/AST.hpp"
 

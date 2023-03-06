@@ -3,7 +3,21 @@
 
 #include <llvm/ADT/SmallVector.h>
 #include <llvm/ADT/StringRef.h>
-#include "Front-End/Parsing/ASTVisitor.hpp"
+
+class AST;
+class Expr;
+class Factor;
+class BinaryOp;
+class WithDecl;
+
+class ASTVisitor {
+public:
+    virtual void visit(AST&) {};
+    virtual void visit(Expr&) {};
+    virtual void visit(Factor&) = 0;
+    virtual void visit(BinaryOp&) = 0;
+    virtual void visit(WithDecl&) = 0;
+};
 
 class AST {
 public:
