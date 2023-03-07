@@ -9,11 +9,32 @@ set (PROJECT_INCLUDE_DIR ${PROJECT_DIR}/include)
 
 set (PROJECT_SOURCE_DIR ${PROJECT_DIR}/src)
 
-file(GLOB PROJECT_SOURCES
-    ${PROJECT_SOURCE_DIR}/*.cpp)
+set(PROJECT_SOURCES
+    ${PROJECT_SOURCE_DIR}/Front-End/Scanning/Lexer.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Scanning/Token.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Parsing/BinaryOp.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Parsing/Factor.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Parsing/Parser.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Parsing/WithDecl.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Semantic/Sema.cpp
+    ${PROJECT_SOURCE_DIR}/Back-End/CodeGen.cpp
+    ${PROJECT_SOURCE_DIR}/Back-End/ToIRVisitor.cpp
+    ${PROJECT_SOURCE_DIR}/Calc.cpp
+    ${PROJECT_SOURCE_DIR}/rtcalc.c)
 
-file(GLOB PROJECT_HEADERS
-    ${PROJECT_INCLUDE_DIR}/*.hpp)
+set(PROJECT_HEADERS
+    ${PROJECT_INCLUDE_DIR}/Front-End/Scanning/Lexer.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Scanning/Token.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/AST.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/BinaryOp.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/Expr.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/Factor.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/Parser.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Parsing/WithDecl.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Semantic/Sema.hpp
+    ${PROJECT_INCLUDE_DIR}/Front-End/Semantic/DeclCheck.hpp
+    ${PROJECT_INCLUDE_DIR}/Back-End/CodeGen.hpp
+    ${PROJECT_INCLUDE_DIR}/Back-End/ToIRVisitor.hpp)
 
 # -> Path to LLVM 12 installation directory
 # set(LLVM_ROOT_DIR "/opt/homebrew/Cellar/llvm@12/12.0.1_1")
