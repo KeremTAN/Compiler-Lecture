@@ -6,6 +6,9 @@
 #include <llvm/IR/LLVMContext.h>
 #include <llvm/Support/raw_ostream.h>
 #include "Front-End/Parsing/AST.hpp"
+#include "Front-End/Parsing/WithDecl.hpp"
+#include "Front-End/Parsing/Factor.hpp"
+#include "Front-End/Parsing/BinaryOp.hpp"
 
 using namespace llvm;
 

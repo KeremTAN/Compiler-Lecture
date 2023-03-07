@@ -9,7 +9,7 @@ ToIRVisitor::ToIRVisitor(Module* Module)
     m_Int8PtrPtrType    = m_Int8PtrType->getPointerTo();
     m_Int32Zero         = ConstantInt::get(m_Int32Ty, 0, true);
 }
-
+ToIRVisitor::~ToIRVisitor(){}
 void ToIRVisitor::run(AST* Tree){
     FunctionType*   MainFty = FunctionType::get(m_Int32Ty, { m_Int32Ty, m_Int8PtrPtrType}, false);
     Function*       MainFn  = Function::Create(MainFty, GlobalValue::ExternalLinkage, "main", m_Module);

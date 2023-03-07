@@ -2,6 +2,9 @@
 #define PARSER_HPP
 #include "Front-End/Parsing/AST.hpp"
 #include "Front-End/Parsing/Expr.hpp"
+#include "Front-End/Parsing/WithDecl.hpp"
+#include "Front-End/Parsing/Factor.hpp"
+#include "Front-End/Parsing/BinaryOp.hpp"
 #include "Front-End/Scanning/Lexer.hpp"
 #include <llvm/Support/raw_ostream.h>
 
