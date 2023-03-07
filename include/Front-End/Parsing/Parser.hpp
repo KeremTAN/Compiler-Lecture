@@ -10,9 +10,7 @@
 
 class Parser {
 public:
-    Parser(Lexer& Lex)
-        :m_Lex(Lex), m_HasError(false)
-    {}
+    Parser(Lexer& Lex);
     bool HasError();
     AST* parse();
 

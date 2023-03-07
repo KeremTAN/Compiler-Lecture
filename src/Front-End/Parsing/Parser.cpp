@@ -1,5 +1,14 @@
 #include "Front-End/Parsing/Parser.hpp"
 
+
+Parser::Parser(Lexer& Lex)
+    :m_Lex(Lex), m_HasError(false)
+{}
+
+bool Parser::HasError(){
+    return m_HasError;
+}
+
 AST* Parser::parse() {
     AST* Res = parseCalc();
     expect(Token::eof);

@@ -1,4 +1,7 @@
 #include "Front-End/Semantic/Sema.hpp"
+#include "Front-End/Parsing/Factor.hpp"
+#include "Front-End/Parsing/BinaryOp.hpp"
+#include "Front-End/Parsing/WithDecl.hpp"
 #include <llvm/ADT/StringSet.h>
 #include <llvm/Support/Error.h>
 
