@@ -15,10 +15,10 @@ public:
     llvm::StringRef getText() const;
     bool            is(TokenKind tokenKind) const;
     bool            isOneOf(TokenKind tokenKind1, TokenKind tokenKind2) const;
-
+    
+    // Defination in here
     template <typename... Ts>
-    bool            isOneOf(TokenKind tokenKind1, TokenKind tokenKind2, Ts... Ks) const;
-
+    bool isOneOf(TokenKind tokenKind1, TokenKind tokenKind2, Ts... Ks) const { return is(tokenKind1) || isOneOf(tokenKind2, Ks...); }
 private:
     TokenKind       m_kind;
     llvm::StringRef m_text; 

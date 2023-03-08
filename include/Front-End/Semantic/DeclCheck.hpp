@@ -1,4 +1,8 @@
+#ifndef DECLCHECK_HPP
+#define DECLCHECK_HPP
+
 #include "Front-End/Semantic/Sema.hpp"
+#include "Front-End/Parsing/AST.hpp"
 #include "Front-End/Parsing/Factor.hpp"
 #include "Front-End/Parsing/BinaryOp.hpp"
 #include "Front-End/Parsing/WithDecl.hpp"
@@ -19,3 +23,5 @@ private:
     bool m_HasError;
     void error(ErrorType ET, llvm::StringRef V);
 };
+
+#endif
