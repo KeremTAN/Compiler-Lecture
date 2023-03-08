@@ -17,6 +17,7 @@ set(PROJECT_SOURCES
     ${PROJECT_SOURCE_DIR}/Front-End/Parsing/Parser.cpp
     ${PROJECT_SOURCE_DIR}/Front-End/Parsing/WithDecl.cpp
     ${PROJECT_SOURCE_DIR}/Front-End/Semantic/Sema.cpp
+    ${PROJECT_SOURCE_DIR}/Front-End/Semantic/DeclCheck.cpp
     ${PROJECT_SOURCE_DIR}/Back-End/CodeGen.cpp
     ${PROJECT_SOURCE_DIR}/Back-End/ToIRVisitor.cpp
     ${PROJECT_SOURCE_DIR}/Calc.cpp
