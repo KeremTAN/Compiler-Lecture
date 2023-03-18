@@ -1,3 +1,4 @@
+
 #  <b> Compiler Lecture  </b>
 * [Aim of This Repository](#aim)
 * [Section 1 - Basic Of Compiler](#sect1)
@@ -21,7 +22,7 @@ A compiler consists of 3 steps. </br>
 These steps are Front-End, Optimizer and Back-End and these steps consist of sub-steps within themselves.
 * Front-End
     * Scanning Analyzer / Lexer
-    * Syntactical Analyzer / Parser
+    * Syntactic Analyzer / Parser
     * Semantic Analyzer
 * Optimizer
 * Back-End
@@ -37,25 +38,60 @@ These steps are Front-End, Optimizer and Back-End and these steps consist of sub
 
 &nbsp; Scanner Analyzer(Lexer) reads one by one characters in the source file until it detects the characters like  '+' ,'=', ';' etc. expression and creates a special object called Token with the characters it reads. </br>
 
-Below is an example of one line of code and its split into Token objects.
-
+An example of code and its split into Token objects are in below.
 ```python
-# Code example;
-
+# Token Code Example;
 x1 = a3 + 5;
+x'2;
 ```
 ```
 # Tokens of the code example;
 
-x1 is a Token
-=  is a Token
-a3 is a Token
-+  is a Token
-5  is a Token
-;  is a Token
+x1  is a  Token (identifier)
+=   is a  Token (assignment operator)
+a3  is a  Token (identifier)
++   is a  Token (+)
+5   is a  Token (number)
+;   is a  Token (end of statement)
+
+x'2 is an Invalid Token
+;   is a  Token (end of statement)
+```
+&nbsp; <b>Note: </b> <i>a3 + 5</i> also called an <b>EXPRESSION</b>
+
+
+#### <b> Syntactic Analyze (Parser) </b>
+
+&nbsp; <b>Parser</b> makes statements with tokens just like people make sentences with words. Tokens obtained in the previous section (Lexer sect.) are used to establish the statements. The statements are then converted into <b>a special data structure called the Abstract Syntax Tree (A.S.T.)</b>.
+
+&nbsp; <b>The aim of Parser</b> is to understand whether the grammar created is correct or not and to debug in A.S.T..
+
+&nbsp; <b>Grammar</b> is the rules given to programmer for compiler have a valid statement. 
+
+The code that each token is used correctly but <b>the grammar is wrong</b> in below.
+```python
+# Invalid Gramer Example;
+x = a*b +/;
 ```
 
-#### <b> Syntactical Analyze (Parser) </b>
+Grammatically correct code is in below.
+```python
+# Grammatically Correct Code for A.S.T. Example;
+x = a*b + y/z;
+```
+Grammatically correct code is shown as an AST graph in below.
+```mermaid
+  graph TD;
+      linkStyle default interpolate basis;
+      assign --> x;
+      assign --> +;
+      + --> *;
+      + --> /;
+      * --> a;
+      * --> b;
+      / --> y;
+      / --> z;
+```
 
 #### <b> Semantic Analyzer </b>
 
