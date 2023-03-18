@@ -18,7 +18,12 @@
 
 ##  <b> Section 1 - Basics Of Compiler  </b>
 &nbsp; In this section a very simple application is developed to understand the basic steps of a compiler. </br>
-A compiler consists of 3 steps. </br>
+
+&nbsp; Before explaining the steps of a compiler, it is better to first explain what a compiler is and what it does. </br>
+
+&nbsp; <b><i>A Compiler</i></b> is <b>a program</b> that converts the code in the source file (files such as .java, .cpp, .py, etc.) into machine code that the computer can understand.
+
+&nbsp; A compiler consists of 3 steps. </br>
 These steps are Front-End, Optimizer and Back-End and these steps consist of sub-steps within themselves.
 * Front-End
     * Scanning Analyzer / Lexer
@@ -34,9 +39,9 @@ These steps are Front-End, Optimizer and Back-End and these steps consist of sub
 
 ### <b> Front-End </b>
 #### <b> Scanning Analyzer (Lexer) </b>
-&nbsp; You can think of the code in the source file (.cpp, .java, .py, etc.) as an ordinary text in a text document (like .txt) at this stage. </br>
+&nbsp; You can think of the code in the source file (files such as .c, .java, .js, etc.) as an ordinary text in a text document (like .txt) at this stage. </br>
 
-&nbsp; Scanner Analyzer(Lexer) reads one by one characters in the source file until it detects the characters like  '+' ,'=', ';' etc. expression and creates a special object called Token with the characters it reads. </br>
+&nbsp; <b><i>Lexer</i></b> reads one by one characters in the source file until it detects the characters like  '+' ,'=', ';' etc. expression and creates a special object called Token with the characters it reads. </br>
 
 An example of code and its split into Token objects are in below.
 ```python
@@ -60,9 +65,9 @@ x'2 is an Invalid Token
 &nbsp; <b>Note: </b> <i>a3 + 5</i> also called an <b>EXPRESSION</b>
 
 
-#### <b> Syntactic Analyze (Parser) </b>
+#### <b> Syntactic Analyzer (Parser) </b>
 
-&nbsp; <b>Parser</b> makes statements with tokens just like people make sentences with words. Tokens obtained in the previous section (Lexer sect.) are used to establish the statements. The statements are then converted into <b>a special data structure called the Abstract Syntax Tree (A.S.T.)</b>.
+&nbsp; <b><i>Parser</i></b> makes statements with tokens just like people make sentences with words. Tokens obtained in the previous section (Lexer sect.) are used to establish the statements. The statements are then converted into <b>a special data structure called the Abstract Syntax Tree (A.S.T.)</b>.
 
 &nbsp; <b>The aim of Parser</b> is to understand whether the grammar created is correct or not and to debug in A.S.T..
 
@@ -70,16 +75,16 @@ x'2 is an Invalid Token
 
 The code that each token is used correctly but <b>the grammar is wrong</b> in below.
 ```python
-# Invalid Gramer Example;
+# Invalid Grammar Example;
 x = a*b +/;
 ```
 
 Grammatically correct code is in below.
 ```python
-# Grammatically Correct Code for A.S.T. Example;
+# Valid Grammar Example;
 x = a*b + y/z;
 ```
-Grammatically correct code is shown as an AST graph in below.
+Grammatically correct code is shown as an A.S.T. graph in below.
 ```mermaid
   graph TD;
       linkStyle default interpolate basis;
@@ -94,6 +99,37 @@ Grammatically correct code is shown as an AST graph in below.
 ```
 
 #### <b> Semantic Analyzer </b>
+&nbsp; <b><i>Semantic Analyzer</i></b> checks whether the written code is meaningful even if the code written in the source file is grammatically correct. </br>
+
+There are examples where a sentence or code may be meaningless even if it is grammatically correct in the below.
+```
+Sentence example; 
+His home is going to he.
+
+Explanation: This sentence is grammatically correct but meaningless.
+
+-----------------
+Code example;
+5 = x;
+
+Explanation: A value of 5 is an real value and x is a local value(represents the memory address).A real value can be assigned to a local variable, but the opposite is meaningless.
+```
+&nbsp; <b>Compilers</b> only must generate meaningful code.
+
+Now that it's understood that a code can be meaningless even if it is grammatically correct, let's take a real-life example.
+```cpp
+Animal a1, a2;
+Person p;
+Computer c;
+int x;
+x = p - c;
+```
+&nbsp; When we write code in a source file in real life, <b>Symbol Table</b> is called for each of our declarations and each variables of the declarations. </br>
+
+&nbsp; As it can be understood, declared variables in our source code in  <b>Symbol Table</b>, their scope fields etc. information is available. </br>
+
+&nbsp; The Compiler can understand that the above example contains meaningless codes by checking the Symbol Table in the Semantic Analyzer during compilation.
+
 
 <a name="optimizer"></a>
 
