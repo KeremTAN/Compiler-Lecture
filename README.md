@@ -12,7 +12,7 @@
 ## <b> Aim of This Repository </b>
 &nbsp; The aim of this repository is to keep the applications in the books which I've been studying on about the field of compilers while I trying to improve myself. Since this repository is related to the compilers area, the applications here will be made with the LLVM library.</br>
 
-<b>[WARNING!]</b> Most of the information in this repository is a summary of what I have read and understood myself. The information here may not be completely accurate. For more detailed information on compilers, please study the <b>Aho's Dragon book and Kai Nacke's LLVM book</b>.
+<b>[WARNING]</b> Most of the information in this repository is a summary of what I have read and understood myself. The information here may not be completely accurate. For more detailed information on compilers, please study the <b>Aho's Dragon book and Kai Nacke's LLVM book</b>.
 
 <a name="sect1"></a>
 
@@ -148,14 +148,60 @@ x = p - c;
 <a name="back"></a>
 
 ### <b> Back-End </b>
+&nbsp; Unlike the optimizer stage the compiler tries to optimize our code according to the specifications of our target machine(x86, arm, etc. architecture) at this stage.
 
+&nbsp; The compiler converts the AST data structure obtained from the The Optimizer part to the Abstract Assembly model in order to optimize our code in the Back-End part.
+
+&nbsp; Abstract Syntax Tree = High-Level Intermediate Representation </br>
+&nbsp; Abstract Assembly = Low-Level Intermediate Representation </br>
+
+An example for "<i><b> num = a*b + y/z </b></i>" created as an abstract assembly model in below.
+```
+# Abstract Assembly Model;
+
+load a -> r1 
+load b -> r2 
+mult r1, r2 -> r3
+load y -> r4 
+load z -> r5 
+div r4, r5 -> r6
+add r3, r6 -> r7
+store r7 -> num
+```
 <a name="insSel"></a>
 
 #### <b> Instruction Selection </b>
+&nbsp; There are different processors that can perform different operations in different ways at nowadays.
+
+&nbsp; While some processors take the value from memory one by one and load them into registers one by one (like the abstract assembly model in above), some other processors can directly access and process the data in memory with operations such as memory operands.
+
+For example; compiler can select
+<b><i> mult[a], [b] -> r1</i></b> instead of </br>
+<b><i> load a -> r1 </i></b> </br>
+<b><i> load b -> r2 </i></b> </br>
+ <b><i>mult r1, r2 -> r3 </i></b>
+
+&nbsp; Compiler tries to choose the most performing option from the available options for our target machine <b>in Instruction Selection</b>.
 
 <a name="insSch"></a>
 
 #### <b> Instruction Scheduling </b>
+
+&nbsp; Compiler reorganizes the instructions so that our program can run most efficiently, taking into account the processing times of the instructions, the number of registers of the target machine, etc. <b>in Instruction Scheduling</b>.
+
+&nbsp; As an example, we can think that the abstract assembly model in the instruction selection part is reorganized as follows to work more efficiently.
+```
+# Reorganized Abstract Assembly Model;
+
+load a -> r1 
+load b -> r2 
+load y -> r4 
+load z -> r5 
+mult r1, r2 -> r3
+div r4, r5 -> r6
+add r3, r6 -> r7
+store r7 -> num
+```
 
 <a name="regAlloc"></a>
 
