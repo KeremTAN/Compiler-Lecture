@@ -207,6 +207,13 @@ store r7 -> num
 
 #### <b> Register Allocation </b>
 
+&nbsp; Compiler acts as if it has an infinite number of registers until the register allocation stage and creates the abstract assembly model with these virtual registers. The r1, r2, etc. shown in the examples above they are all virtual registers and the registers resulting from the operation with two virtual registers are temporary virtual registers.</br>
+For example; <i>mult r1, r2 -> r3</i> </br>
+r3 is temporary virtual register in here.
+
+&nbsp; Compiler takes the virtual registers in the abstract assembly model and maps them with the real registers in the target machine <b>in register allocation part.</b>
+
+&nbsp; As you can imagine, the number of registers of a target machine is not infinite. Compiler map the virtual registers with the highest priority for the mapping to the real registers, and the virtual registers that cannot be mapped to the real registers are stored in memory again in this stage.
 <a name="calc"></a>
 
 ### <b> Calc Language Application</b>
