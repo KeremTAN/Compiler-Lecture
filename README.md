@@ -1,10 +1,11 @@
 
 #  <b> Compiler Lecture  </b>
 * [Aim of This Repository](#aim)
-* [Section 1 - Basic Of Compiler](#sect1)
+* [Summary Information About Compilers](#siac)
     * [Front-End](#front)
     * [Optimizer](#optimizer)
     * [Back-End](#back)
+* [Section 1 - Basic Of Compiler](#sect1)
     * [Calc Language Application](#calc)
 
 <a name="aim"></a>
@@ -14,11 +15,9 @@
 
 <b>[WARNING]</b> Most of the information in this repository is a summary of what I have read and understood myself. The information here may not be completely accurate. For more detailed information on compilers, please study the <b>Aho's Dragon book and Kai Nacke's LLVM book</b>.
 
-<a name="sect1"></a>
+<a name="siac"></a>
 
-##  <b> Section 1 - Basics Of Compiler  </b>
-&nbsp; In this section a very simple application is developed to understand the basic steps of a compiler. </br>
-
+##  <b> Summary Information About Compilers </b>
 &nbsp; Before explaining the steps of a compiler, it is better to first explain what a compiler is and what it does. </br>
 
 &nbsp; <b><i>A Compiler</i></b> is <b>a program</b> that converts the code in the source file (files such as .java, .cpp, .py, etc.) into machine code that the computer can understand.
@@ -214,6 +213,31 @@ r3 is temporary virtual register in here.
 &nbsp; Compiler takes the virtual registers in the abstract assembly model and maps them with the real registers in the target machine <b>in register allocation part.</b>
 
 &nbsp; As you can imagine, the number of registers of a target machine is not infinite. Compiler map the virtual registers with the highest priority for the mapping to the real registers, and the virtual registers that cannot be mapped to the real registers are stored in memory again in this stage.
+
+<a name="sect1"></a>
+
+##  <b> Section 1 - Basics Of Compiler </b>
+&nbsp; In this section a very simple application is developed to understand the basic steps of a compiler. </br>
+
 <a name="calc"></a>
 
 ### <b> Calc Language Application</b>
+&nbsp; An example for syntax of the language developed with this application is given below.
+```
+with a, b: a * (4 + b)
+```
+The program that has been written performs the arithmetic in the expression with the variables defined with the with keyword.
+
+
+<b>Extended Backus-Naur Form (EBNF)</b> </br>
+&nbsp; Grammar rules of the language to be written will be defined here.
+```
+calc    : ("with" ident ("," ident)* ":")? expr ;
+expr    : term (("+" | "-") term)* ;
+term    : factor (("*" | "/") factor)* ;
+factor  : ident | number | "(" expr ")" ;
+ident   : ([a-zAZ])+ ;
+number  : ([0-9])+ ;
+```
+
+
