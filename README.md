@@ -232,12 +232,17 @@ The program that has been written performs the arithmetic in the expression with
 <b>Extended Backus-Naur Form (EBNF)</b> </br>
 &nbsp; Grammar rules of the language to be written will be defined here.
 ```
-calc    : ("with" ident ("," ident)* ":")? expr ;
+calc    : ("with" ident ("," ident)*)? ":" expr ;
 expr    : term (("+" | "-") term)* ;
 term    : factor (("*" | "/") factor)* ;
 factor  : ident | number | "(" expr ")" ;
-ident   : ([a-zAZ])+ ;
+ident   : ([a-zA-Z])+ ;
 number  : ([0-9])+ ;
 ```
-
+<b>(...)</b> means that it is <b>a group</b>.</br>
+<b>?</b> means that it is <b>optional</b>.</br>
+<b>*</b> means that <b>zero or more repetitions</b>.</br>
+<b>+</b> means that <b>one or more repetitions</b>.</br>
+<b>|</b> means that it is <b>an alternative</b>.</br>
+<b>[...]</b> means that it is <b>a charachter class</b>.</br>
 
