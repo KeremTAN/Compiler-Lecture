@@ -30,9 +30,9 @@ These steps are Front-End, Optimizer and Back-End and these steps consist of sub
     * [Semantic Analyzer](#semantic)
 * [Optimizer](#optimizer)
 * [Back-End](#back)
-    * [Instruction Selection](#insSel)
-    * [Instruction Scheduling](#insSch)
-    * [Register Allocation](#regAlloc)
+    * [Instruction Selection](#iselection)
+    * [Instruction Scheduling](#ischeduling)
+    * [Register Allocation](#rallocation)
 
 <a name="front"></a>
 
@@ -144,6 +144,7 @@ x = p - c;
 &nbsp; There are different methods and approaches for these optimization processes. The most common of these is the Command Subexpression Elimination(CSE). To summarize the CSE approach roughly and to give a simple example, if there are more than one repetitive operations, those operations are assigned to a variable. When those operations are needed, they are used from the variables they are assigned.
 
 &nbsp; Optimizer and Compiler solutions are a kind of <b>heuristic algorithms.</b>
+
 <a name="back"></a>
 
 ### <b> Back-End </b>
@@ -167,7 +168,7 @@ div r4, r5 -> r6
 add r3, r6 -> r7
 store r7 -> num
 ```
-<a name="insSel"></a>
+<a name="iselection"></a>
 
 #### <b> Instruction Selection </b>
 &nbsp; There are different processors that can perform different operations in different ways at nowadays.
@@ -182,7 +183,7 @@ For example; compiler can select
 
 &nbsp; Compiler tries to choose the most performing option from the available options for our target machine <b>in Instruction Selection</b>.
 
-<a name="insSch"></a>
+<a name="ischeduling"></a>
 
 #### <b> Instruction Scheduling </b>
 
@@ -202,7 +203,7 @@ add r3, r6 -> r7
 store r7 -> num
 ```
 
-<a name="regAlloc"></a>
+<a name="rallocation"></a>
 
 #### <b> Register Allocation </b>
 
