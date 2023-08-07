@@ -6,20 +6,21 @@
     * [Optimizer](#optimizer)
     * [Back-End](#back)
 * [How to Work Example Projects](#hwep)
+    * [Required Tools](#rtools)
 
 <a name="aim"></a>
 
 ## <b> Aim of This Repository </b>
 &nbsp; The aim of this repository is to keep the applications in the books which I've been studying on about the field of compilers while I trying to improve myself. Since this repository is related to the compilers area, the applications here will be made with the LLVM library.</br>
 
-<b>[WARNING]</b> Most of the information in this repository is a summary of what I have read and understood myself. The information here may not be completely accurate. For more detailed information on compilers, please study the <b>Aho's Dragon book and Kai Nacke's LLVM book</b>.
+&nbsp; <b>[WARNING]</b> Most of the information in this repository is a summary of what I have read and understood myself. The information here may not be completely accurate. For more detailed information on compilers, please study the <b>Aho's Dragon book and Kai Nacke's Learn LLVM 12 book</b>.
 
 <a name="siac"></a>
 
 ##  <b> Summary Information About Compilers </b>
 &nbsp; Before explaining the steps of a compiler, it is better to first explain what a compiler is and what it does. </br>
 
-&nbsp; <b><i>A Compiler</i></b> is <b>a program</b> that converts the code in the source file (files such as .java, .cpp, .py, etc.) into machine code that the computer can understand.
+&nbsp; <b><i>A Compiler</i></b> is <b>a program</b> that converts the code in the source file (files such as .java, .cpp, .cs, etc.) into machine code that the computer can understand.
 
 &nbsp; A compiler consists of 3 steps. </br>
 These steps are Front-End, Optimizer and Back-End and these steps consist of sub-steps within themselves.
@@ -36,7 +37,7 @@ These steps are Front-End, Optimizer and Back-End and these steps consist of sub
 <a name="front"></a>
 
 ### <b> Front-End </b>
-&nbsp; You can think of the code in the source file(source files such as .c, .java, .js, etc.) as an ordinary text in a text document (like .txt file) at this stage. </br>
+&nbsp; You can think of the code in the source file(source files such as .c, .java, .cs, etc.) as an ordinary text in a text document (like .txt file) at this stage. </br>
 
 <a name="lexer"></a>
 
@@ -216,4 +217,23 @@ r3 is temporary virtual register in here.
 <a name="hwep"></a>
 
 ## <b> How to Work Example Projects </b>
-&nbsp; 
+&nbsp; In each section folder, there is a sample project folder and a Readme.md file that contains a summary of the grammar rules used in that project.
+
+&nbsp; All you need to do to open each project is to enter the relevant section folder and open the project folder in the section folder with VsCode.
+
+<a name="rtools"></a>
+
+### <b> Required Tools </b>
+
+* #### <b> VsCode </b>
+    You can download and install the VsCode editor to run the sample projects from the link here https://code.visualstudio.com/download
+
+* #### <b> LLVM Library </b>
+    The LLVM 12 library will be used mainly in the examples. You can download and install any version of the LLVM library from the link here https://releases.llvm.org/download.html
+
+    You can also download LLVM 12 with the tools provided by your operating system and ide, apart from the link above.
+
+    For example, homebrew tool in MacOs operating system or Visual C++ Package Manager(vcpkg) of Visual Studio ide.
+
+* #### <b> CMake </b>
+    Required for building and compiling C++ projects in the VsCode editor. You can install CMake tool from the link here https://cmake.org/install/
